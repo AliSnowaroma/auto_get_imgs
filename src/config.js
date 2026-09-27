@@ -14,9 +14,10 @@ module.exports = {
   // 浏览器定位器：playwright 会自动在项目中下载的浏览器
   browser: 'chromium',
 
-  // 指定系统已安装的 Chromium 可执行文件路径。
-  // 设置后优先用它（免下载浏览器）；置空则使用 playwright 自带浏览器（需先 npx playwright install）。
-  executablePath: '/usr/local/bin/chromium',
+  // 指定系统已安装的 Chromium/Chrome 可执行文件路径（可选）。
+  // 留空(默认)：自动探测常见系统浏览器路径；找不到则使用 Playwright 自带浏览器（需 npx playwright install chromium）。
+  // 显式填写后优先使用你指定的路径。
+  executablePath: '',
 
   // 页面加载与等待超时（毫秒）
   navigationTimeout: 30000,
