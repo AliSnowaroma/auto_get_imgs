@@ -8,16 +8,29 @@ module.exports = {
   // 百度普通搜索页 URL 模板，{keyword} 会被替换为汉字关键词（自动 URL 编码）
   searchUrlTemplate: 'https://www.baidu.com/s?wd={keyword}',
 
-  // 是否以无头模式运行（不弹出浏览器窗口）；调试时设为 false 可观察页面
-  headless: true,
+  // 是否以无头模式运行（不弹出浏览器窗口）。
+  // 建议：首次运行（要手动过百度验证）设为 false；过验证后用持久化 profile，可改回 true 也能带 cookie。
+  headless: false,
 
   // 浏览器定位器：playwright 会自动在项目中下载的浏览器
   browser: 'chromium',
+
+  // 自定义 User-Agent；留空则使用内置的 Chrome 120 UA
+  userAgent: '',
 
   // 指定系统已安装的 Chromium/Chrome 可执行文件路径（可选）。
   // 留空(默认)：自动探测常见系统浏览器路径；找不到则使用 Playwright 自带浏览器（需 npx playwright install chromium）。
   // 显式填写后优先使用你指定的路径。
   executablePath: '',
+
+  // 是否使用持久化用户目录（保留 cookie / 登录态）。
+  // 为 true 时：第一次用 headless:false 手动过百度验证一次，之后 cookie 被保存复用，极大降低再次验证概率。
+  persistentProfile: true,
+  // 持久化用户目录（相对项目根目录），首次运行后会自动创建
+  profileDir: '.profile',
+
+  // 每次搜索之间的随机延迟范围（毫秒）[最小值, 最大值]，模拟人类节奏，防止请求过快触发风控
+  randomDelay: [3000, 6000],
 
   // 页面加载与等待超时（毫秒）
   navigationTimeout: 30000,
