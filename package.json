@@ -1,0 +1,13 @@
+{
+  "name": "baidu-gif-fetcher",
+  "version": "1.0.0",
+  "description": "自动获取百度搜索结果中的 gif 图片，输出 JSON 结果",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  }
+}
