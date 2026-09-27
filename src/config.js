@@ -9,7 +9,7 @@ module.exports = {
   searchUrlTemplate: 'https://www.baidu.com/s?wd={keyword}',
 
   // 是否以无头模式运行（不弹出浏览器窗口）；调试时设为 false 可观察页面
-  headless: true,
+  headless: false,
 
   // 浏览器定位器：playwright 会自动在项目中下载的浏览器
   browser: 'chromium',

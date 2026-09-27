@@ -93,6 +93,7 @@ async function searchOne(context, word, config) {
 
     // 等待网络基本稳定，确保搜索结果已渲染
     await page.waitForLoadState('networkidle', { timeout: config.waitTimeout }).catch(() => {});
+    // await page.pause();
 
     return await extractGifFromPage(page);
   } catch (err) {
